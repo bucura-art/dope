@@ -17,7 +17,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
     <>
       <div className="product-card__copy">
         <h2 style={{ fontFamily: product.fontFamily }}>{product.name}</h2>
-        <p><mark>{product.shortDescription}</mark></p>
+        <p className="product-card__description"><mark>{product.shortDescription}</mark></p>
       </div>
       <div className="product-card__artwork" aria-hidden="true">
         <Image

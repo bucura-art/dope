@@ -7,8 +7,8 @@ export type TeamMember = {
 export const teamMembers: TeamMember[] = [
   {
     name: "Bucura Art",
-    role: "Founder & CEO",
-    image: "/team/my-logo.png",
+    role: "Founder",
+    image: "/team/bucura-logo.png",
   },
   {
     name: "Copilot",
@@ -23,7 +23,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: "CTO",
     role: "CTO",
-    image: "/team/my-logo.png",
+    image: "/team/bucura-logo.png",
   },
   {
     name: "Gemini",
@@ -33,21 +33,21 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Bucura Art",
     role: "Product Tester",
-    image: "/team/my-logo.png",
+    image: "/team/bucura-logo.png",
   },
   {
     name: "Project Manager",
     role: "Project Manager",
-    image: "/team/my-logo.png",
+    image: "/team/bucura-logo.png",
   },
   {
     name: "Graphic Designer",
     role: "Graphic Designer",
-    image: "/team/my-logo.png",
+    image: "/team/bucura-logo.png",
   },
   {
     name: "System Administrator",
     role: "System Administrator",
-    image: "/team/my-logo.png",
+    image: "/team/bucura-logo.png",
   },
 ];

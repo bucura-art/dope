@@ -33,6 +33,11 @@ const technor = localFont({
   variable: "--font-technor",
 });
 
+const kalam = localFont({
+  src: "../public/fonts/Kalam-Variable.ttf",
+  variable: "--font-kalam",
+});
+
 export const metadata: Metadata = {
   title: "The Dope Company — Independent Digital Product Studio",
   description:
@@ -43,7 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${modak.variable} ${panchang.variable} ${squadaOne.variable} ${technor.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${modak.variable} ${panchang.variable} ${squadaOne.variable} ${technor.variable} ${kalam.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
