@@ -440,7 +440,10 @@ button.product-card {
 }
 
 .not-published-dialog {
+  position: fixed;
+  inset: 50% auto auto 50%;
   width: min(calc(100% - 32px), 400px);
+  margin: 0;
   padding: 32px;
   border: 1px solid var(--line);
   border-radius: 20px;
@@ -448,6 +451,7 @@ button.product-card {
   box-shadow: 0 24px 80px rgb(0 0 0 / 40%);
   color: var(--foreground);
   text-align: center;
+  transform: translate(-50%, -50%);
 }
 
 .not-published-dialog::backdrop {

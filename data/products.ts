@@ -19,7 +19,7 @@ export const products = [
     category: "AI chatbot",
     tagline: "AI that gets it.",
     logo: "/brand/bamenya-logo.png",
-    productUrl: "https://bamenya-ai.vercel.app",
+    productUrl: "https://bamenya.vercel.app",
     fontFamily: "var(--font-panchang)",
     themeColor: "#0AA9E8",
     shortDescription: "AI that gets it.",
