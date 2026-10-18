@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { Product } from "@/data/products";
 
 type ProductCardProps = {
@@ -8,10 +10,26 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({ product, index }: ProductCardProps) {
+  const [isNoticeOpen, setIsNoticeOpen] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const cardStyle = {
     "--product-color": product.themeColor,
     "--card-delay": `${index * 70}ms`,
   } as CSSProperties;
+  const isUnpublished =
+    !product.productUrl || product.productUrl.startsWith("https://example.com");
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+
+    if (!dialog) return;
+
+    if (isNoticeOpen && !dialog.open) {
+      dialog.showModal();
+    } else if (!isNoticeOpen && dialog.open) {
+      dialog.close();
+    }
+  }, [isNoticeOpen]);
 
   const content = (
     <>
@@ -32,7 +50,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
     </>
   );
 
-  if (product.productUrl) {
+  if (!isUnpublished) {
     return (
       <a
         className="product-card"
@@ -48,8 +66,32 @@ export default function ProductCard({ product, index }: ProductCardProps) {
   }
 
   return (
-    <article className="product-card" style={cardStyle}>
-      {content}
-    </article>
+    <>
+      <button
+        className="product-card"
+        type="button"
+        style={cardStyle}
+        aria-label={`${product.name}: ${product.shortDescription}`}
+        aria-haspopup="dialog"
+        onClick={() => setIsNoticeOpen(true)}
+      >
+        {content}
+      </button>
+      <dialog
+        ref={dialogRef}
+        className="not-published-dialog"
+        aria-labelledby={`not-published-title-${product.slug}`}
+        onClose={() => setIsNoticeOpen(false)}
+      >
+        <h2 id={`not-published-title-${product.slug}`}>Not Published!</h2>
+        <button
+          className="not-published-dialog__button"
+          type="button"
+          onClick={() => dialogRef.current?.close()}
+        >
+          Okay
+        </button>
+      </dialog>
+    </>
   );
 }

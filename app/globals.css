@@ -379,7 +379,9 @@ html[data-theme="light"] .product-card {
 }
 
 html[data-theme="light"] a.product-card:hover,
-html[data-theme="light"] a.product-card:focus-visible {
+html[data-theme="light"] a.product-card:focus-visible,
+html[data-theme="light"] button.product-card:hover,
+html[data-theme="light"] button.product-card:focus-visible {
   box-shadow: 0 26px 54px rgb(30 35 45 / 25%);
 }
 
@@ -422,10 +424,53 @@ a.product-card {
 }
 
 a.product-card:hover,
-a.product-card:focus-visible {
+a.product-card:focus-visible,
+button.product-card:hover,
+button.product-card:focus-visible {
   z-index: 3;
   box-shadow: 0 26px 54px rgb(0 0 0 / 48%);
   transform: translateY(-18px) rotate(0) scale(1.12);
+}
+
+button.product-card {
+  width: auto;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.not-published-dialog {
+  width: min(calc(100% - 32px), 400px);
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--background);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 40%);
+  color: var(--foreground);
+  text-align: center;
+}
+
+.not-published-dialog::backdrop {
+  background: rgb(0 0 0 / 62%);
+  backdrop-filter: blur(3px);
+}
+
+.not-published-dialog h2 {
+  margin: 0 0 24px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.not-published-dialog__button {
+  min-width: 104px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .product-card__artwork {
